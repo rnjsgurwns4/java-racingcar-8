@@ -2,6 +2,7 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,23 +63,23 @@ public class Application {
     }
 
 
-    public static void doRacing(int count, int[] score, String[] names){
-        for(int i = 0; i < count; i++){
+    public static void doRacing(int count, int[] score, String[] names) {
+        for (int i = 0; i < count; i++) {
             doOneRacing(score, names);
             System.out.println();
         }
     }
 
-    public static void doOneRacing(int[] score, String[] names){
-        for(int j = 0; j < score.length; j++){
-            if (pickNumberInRange(0, 9) >=4) score[j] += 1;
+    public static void doOneRacing(int[] score, String[] names) {
+        for (int j = 0; j < score.length; j++) {
+            if (pickNumberInRange(0, 9) >= 4) score[j] += 1;
             String temp = "-".repeat(score[j]);
             System.out.println(names[j] + " : " + temp);
         }
     }
 
 
-    public static String getWinners(int[] scores, String[] names){
+    public static String getWinners(int[] scores, String[] names) {
 
         List<String> winners = new ArrayList<>();
         int maxScore = Integer.MIN_VALUE;
@@ -90,7 +91,7 @@ public class Application {
         return String.join(", ", winners);
     }
 
-    public static int compareScore(int score, int maxScore, List<String> winners, String name){
+    public static int compareScore(int score, int maxScore, List<String> winners, String name) {
         if (score > maxScore) {
             maxScore = score;
             winners.clear();
